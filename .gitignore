@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+frontend/node_modules/
+
+# build outputs
+dist/
+frontend/dist/
+coverage/
+
+# lock files (project policy)
+package-lock.json
+frontend/package-lock.json
+
+# environment/local configs
+.env
+.env.*
+.env.local
+frontend/.env
+frontend/.env.*
+frontend/.env.local
+
+# misc
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+frontend/node_modules/

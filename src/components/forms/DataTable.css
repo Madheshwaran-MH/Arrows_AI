@@ -1,0 +1,126 @@
+.data-table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 500px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-break: break-word;
+}
+
+.data-table th {
+  background-color: #f2f2f2;
+  color: #374151;
+  font-weight: bold;
+  white-space: nowrap;
+  padding-right: 28px;
+}
+
+.data-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Action Icons Styling */
+.action-icons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.action-btn:hover {
+  background-color: #e8f4f8;
+  transform: scale(1.1);
+}
+
+.view-btn:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.edit-btn:hover {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.delete-btn:hover {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .data-table th,
+  .data-table td {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+
+  .data-table th {
+    font-size: 11px;
+  }
+
+  .action-btn {
+    font-size: 14px;
+    padding: 4px 6px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  .action-icons {
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .data-table th,
+  .data-table td {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  .data-table th {
+    font-size: 9px;
+  }
+
+  .action-btn {
+    font-size: 12px;
+    padding: 3px 5px;
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  .action-icons {
+    gap: 3px;
+  }
+}

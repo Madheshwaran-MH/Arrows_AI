@@ -1,0 +1,15 @@
+.experience-row {
+  display: flex;
+  gap: 20px;
+}
+
+.experience-row .form-field {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .experience-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

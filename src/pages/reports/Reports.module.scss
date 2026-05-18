@@ -1,0 +1,319 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.reportsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background-color: #ffffff;
+}
+
+// Header section
+.headerSection {
+  padding: 24px 24px 20px 24px;
+  background-color: #ffffff;
+
+  @media (max-width: 768px) {
+    padding: 20px 16px 16px 16px;
+  }
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+// Date Range Section
+.dateRangeSection {
+  padding: 20px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.dateField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 0 1 250px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+  }
+}
+
+.dateLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+
+  .required {
+    color: #ff4444;
+  }
+}
+
+.dateInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.dateIcon {
+  width: 18px;
+  height: 18px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.dateInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #666;
+
+  &::placeholder {
+    color: #bbb;
+  }
+
+  &:focus {
+    color: #333;
+  }
+}
+
+// Tabs Section
+.tabsSection {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e0e0e0;
+  background-color: #ffffff;
+  padding: 0 24px;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.tab {
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s ease;
+  position: relative;
+  bottom: -2px;
+
+  &:hover {
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
+
+.activeTab {
+  color: #ff6b35;
+  border-bottom-color: #ff6b35;
+  font-weight: 600;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+// Content Area
+.contentArea {
+  flex: 1;
+  padding: 24px;
+  background-color: #ffffff;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 60px 20px;
+
+  p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+  }
+}
+
+// Metrics Section
+.metricsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+
+  @media (max-width: 968px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.metricCard {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.metricLabel {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+}
+
+.metricValue {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+// Chart Section
+.chartSection {
+  margin-top: 40px;
+}
+
+.chartTitle {
+  margin: 0 0 24px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.chartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chartRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.chartLabel {
+  width: 150px;
+  font-size: 13px;
+  color: #666;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.chartBarWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.chartBar {
+  flex: 1;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.chartFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.chartSegment {
+  height: 100%;
+  display: inline-block;
+  transition: width 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.chartValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  min-width: 40px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .reportsContainer,
+  .contentArea,
+  .chartContainer,
+  .chartBarWrapper {
+    min-width: 0;
+  }
+
+  .tabsSection {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab {
+    white-space: nowrap;
+  }
+
+  .chartLabel {
+    word-break: break-word;
+  }
+}

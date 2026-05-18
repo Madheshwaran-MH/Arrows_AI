@@ -1,0 +1,212 @@
+// Step Progress Bar Styles
+// A multi-step indicator for recruitment/application workflow
+
+.stepProgressBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  
+  &.vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  
+  .vertical & {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.stepCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid;
+  background: white;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+}
+
+// Step statuses
+.step.pending .stepCircle {
+  border-color: #e5e7eb;
+  color: #cbd5e1;
+  background: white;
+}
+
+.step.active .stepCircle {
+  border-color: #3b82f6;
+  color: #fff;
+  background: #3b82f6;
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.35);
+  transform: scale(1);
+}
+
+.step.complete .stepCircle {
+  border-color: #22c55e;
+  background: #22c55e;
+  color: white;
+  transform: scale(1);
+  animation: checkmarkPop 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Pop animation for completed steps
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.stepNumber {
+  display: block;
+}
+
+.checkIcon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 3px;
+}
+
+.stepLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-align: center;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+  
+  .step.active & {
+    color: #3b82f6;
+    font-weight: 600;
+  }
+  
+  .step.complete & {
+    color: #22c55e;
+    font-weight: 600;
+  }
+  
+  .vertical & {
+    text-align: left;
+    max-width: none;
+    margin-left: 12px;
+  }
+}
+
+// Connector line between steps
+.connector {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  
+  .vertical & {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+}
+
+.connectorLine {
+  width: 100%;
+  height: 2px;
+  background: #e5e7eb;
+  position: relative;
+  transition: all 0.5s ease;
+  
+  .vertical & {
+    width: 3px;
+    height: 100%;
+  }
+  
+  &[data-status="complete"] {
+    background: #22c55e;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: #22c55e;
+      animation: fillLineHorizontal 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      .vertical & {
+        animation: fillLineVertical 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+  }
+}
+
+@keyframes fillLineHorizontal {
+  from {
+    width: 0;
+    opacity: 0.5;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes fillLineVertical {
+  from {
+    height: 0;
+    opacity: 0.5;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .stepProgressBar:not(.vertical) {
+    padding: 15px 0;
+  }
+  
+  .stepCircle {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  
+  .stepLabel {
+    font-size: 11px;
+    max-width: 80px;
+  }
+  
+  .checkIcon {
+    width: 16px;
+    height: 16px;
+  }
+}

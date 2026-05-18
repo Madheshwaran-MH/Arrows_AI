@@ -1,0 +1,58 @@
+.application-form-page {
+  padding: 20px;
+  max-width: 100%;
+}
+
+.application-form-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.25;
+}
+
+.application-form-page h2 {
+  margin-top: 40px;
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+}
+
+@media (max-width: 1024px) {
+  .application-form-page {
+    padding: 16px;
+  }
+
+  .application-form-page h1 {
+    margin-bottom: 24px;
+  }
+
+  .application-form-page h2 {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .application-form-page {
+    padding: 12px;
+  }
+
+  .application-form-page h1 {
+    margin-bottom: 18px;
+  }
+
+  .application-form-page h2 {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .application-form-page {
+    padding: 10px;
+  }
+
+  .application-form-page h1 {
+    margin-bottom: 14px;
+  }
+
+  .application-form-page h2 {
+    margin-top: 18px;
+  }
+}

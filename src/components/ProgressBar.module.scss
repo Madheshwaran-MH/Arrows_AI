@@ -1,0 +1,155 @@
+// Progress Bar Styles
+// Based on CSS Tricks CSS3 Progress Bars
+// https://css-tricks.com/css3-progress-bars/
+
+.meterWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.meter {
+  position: relative;
+  background: #555;
+  border-radius: 25px;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  flex: 1;
+  
+  // Inner span - the filled part
+  > span {
+    display: block;
+    height: 100%;
+    border-radius: 20px 8px 8px 20px;
+    background-color: rgb(43, 194, 83);
+    background-image: linear-gradient(
+      to bottom,
+      rgb(84, 240, 84),
+      rgb(43, 194, 83)
+    );
+    box-shadow: 
+      inset 0 2px 9px rgba(255, 255, 255, 0.3),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    
+    // Candy stripes effect using pseudo-element
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+      );
+      z-index: 1;
+      background-size: 50px 50px;
+      border-radius: 20px 8px 8px 20px;
+      overflow: hidden;
+    }
+  }
+}
+
+// Color variations
+.orange > span {
+  background-color: #f1a165;
+  background-image: linear-gradient(to bottom, #f1a165, #f36d0a);
+}
+
+.red > span {
+  background-color: #f0a3a3;
+  background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
+}
+
+.blue > span {
+  background-color: #7db9e8;
+  background-image: linear-gradient(to bottom, #7db9e8, #2e5c8a);
+}
+
+// Animated stripes
+.animate > span .stripes {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  z-index: 2;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+  border-radius: 20px 8px 8px 20px;
+  overflow: hidden;
+}
+
+// When animated, hide the pseudo-element to avoid duplication
+.animate > span::after {
+  display: none;
+}
+
+// Keyframe animation for moving stripes
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+// Percentage text
+.percentage {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  min-width: 45px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .meterWrapper {
+    gap: 10px;
+  }
+
+  .percentage {
+    font-size: 13px;
+    min-width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .meterWrapper {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .meter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .percentage {
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+    font-size: 12px;
+  }
+}

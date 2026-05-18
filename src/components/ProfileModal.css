@@ -1,0 +1,329 @@
+/* ===== Shared Modal Styles ===== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: overlayIn 180ms ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modalCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  animation: cardIn 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.modalClose {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.modalClose:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.modalBtnPrimary {
+  padding: 9px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 140ms ease, transform 100ms ease;
+}
+
+.modalBtnPrimary:hover { background: #2563eb; }
+.modalBtnPrimary:active { transform: translateY(1px); }
+
+.modalBtnSecondary {
+  padding: 9px 20px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #475569;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.modalBtnSecondary:hover { background: #f8fafc; }
+
+/* ===== Profile Modal ===== */
+.profileModalBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.profileModalAvatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profileModalInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profileModalRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profileModalLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.profileModalInput {
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: #f8fafc;
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profileModalInput:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: #fff;
+}
+
+.profileModalInput[readonly] {
+  background: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* ===== Settings Modal ===== */
+.settingsModalBody {
+  padding: 8px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.settingsSection {
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.settingsSection:last-child {
+  border-bottom: none;
+}
+
+.settingsSectionTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+}
+
+.settingsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.settingsLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.settingsSelect {
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 0.88rem;
+  color: #0f172a;
+  outline: none;
+  cursor: pointer;
+  min-width: 150px;
+  transition: border-color 140ms ease;
+}
+
+.settingsSelect:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Toggle switch */
+.settingsToggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: background 200ms ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.settingsToggleOn { background: #3b82f6; }
+
+.settingsToggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: transform 200ms ease;
+  display: block;
+}
+
+.settingsToggleOn .settingsToggleThumb {
+  transform: translateX(20px);
+}
+
+.settingsLinkBtn {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 140ms ease;
+}
+
+.settingsLinkBtn:hover { color: #2563eb; }
+
+/* ===== Change Password Inline Fields ===== */
+.changePasswordFields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 4px 0 12px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  animation: cardIn 180ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.changePasswordRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.changePasswordActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.passwordErrorMsg {
+  font-size: 0.78rem;
+  color: #ef4444;
+  margin-top: 2px;
+}
+
+@media (max-width: 480px) {
+  .modalCard {
+    border-radius: 14px;
+    max-height: 95vh;
+  }
+  .settingsRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .settingsSelect { min-width: unset; width: 100%; }
+}

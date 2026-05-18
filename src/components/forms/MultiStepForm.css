@@ -1,0 +1,165 @@
+.multi-step-form {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  gap: 28px;
+  position: relative;
+}
+
+.step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background-color: #d1d5db;
+  z-index: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  min-width: 110px;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-check {
+  width: 16px;
+  height: 16px;
+}
+
+.step.active .step-circle {
+  border-color: #3f90f6;
+}
+
+.step.active .step-dot {
+  background-color: #3f90f6;
+  box-shadow: 0 0 0 4px rgba(63, 144, 246, 0.15);
+}
+
+.step.complete .step-circle {
+  border-color: #3f90f6;
+  background-color: #3f90f6;
+  color: #fff;
+}
+
+.step.complete .step-check {
+  color: #fff;
+}
+
+.step-label {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  transition: color 0.2s ease;
+}
+
+.step.active .step-label {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.step.complete .step-label {
+  color: #1e40af;
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.form-buttons-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.form-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-btn.primary {
+  background-color: #3f90f6;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(63, 144, 246, 0.2);
+}
+
+.form-btn.secondary {
+  background-color: #f8fafc;
+  border-color: #dbe3ee;
+  color: #64748b;
+}
+
+.form-btn.primary:hover {
+  background-color: #2f7be0;
+}
+
+.form-btn.secondary:hover {
+  background-color: #eef2f6;
+}
+
+.form-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .step-indicator {
+    gap: 18px;
+  }
+
+  .step {
+    min-width: 90px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-buttons-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,138 @@
+
+
+/* Module-only styles for nav visuals, active states, spacing */
+
+
+.sidebar {
+  /* padding inside the panel; global controls position/width */
+  padding: var(--space-4) var(--space-3);
+
+
+  @media (max-width: 768px) {
+    padding: var(--space-3) var(--space-2);
+  }
+}
+
+
+
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+
+  @media (max-width: 768px) { gap: 8px; }
+  @media (max-width: 480px) { gap: 6px; }
+}
+
+
+.item {
+  display: flex;
+  flex-direction: column;      /* icon on top, text below */
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--subtext);
+  padding: 10px 8px;
+  min-height: 72px;
+  transition: background-color 160ms ease, color 160ms ease;
+
+
+  &:hover { 
+    background: var(--bgiconactive);
+    color: var(--primary);
+  }
+  &:hover .icon {
+    color: var(--primary);
+  }
+
+
+  @media (max-width: 1024px) { min-height: 68px; }
+  @media (max-width: 768px)  { min-height: 64px; padding: 8px 6px; border-radius: 8px; }
+  @media (max-width: 480px)  { min-height: 60px; padding: 8px 6px; border-radius: 10px; }
+}
+
+
+.active {
+  color: var(--primary);
+}
+.active .icon {
+  color: var(--primary);
+  background: var(--bgiconactive);
+}
+
+
+.icon {
+  color: var(--sidebar-icon);      /* used as currentColor for SVG */
+  width: 35px; height: 35px;
+  padding: 8px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+
+
+  :global(svg) {
+    width: 100%; height: 100%;
+    /* Ensure your SVG paths aren’t hard-coded; prefer currentColor */
+  }
+
+
+  @media (max-width: 1024px) { width: 35px; height: 35px; }
+  @media (max-width: 768px)  { width: 33px; height: 33px; }
+  @media (max-width: 480px)  { width: 31px; height: 31px; }
+}
+
+
+.text {
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+
+
+  @media (max-width: 1024px) { font-size: 11.5px; }
+  @media (max-width: 768px)  { font-size: 11px; }
+  @media (max-width: 480px)  { font-size: 10.5px; }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    padding: calc(var(--space-5) + env(safe-area-inset-top)) var(--space-3) var(--space-4);
+  }
+
+  .item {
+    width: 100%;
+    min-height: 52px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .text {
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    min-height: 50px;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .text {
+    font-size: 13px;
+  }
+}
+
+
+
+

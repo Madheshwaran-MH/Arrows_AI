@@ -1,0 +1,483 @@
+
+
+/* ═══════════════════════════════════════════
+   Dashboard Stats Bar
+═══════════════════════════════════════════ */
+.statsBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1.3fr;
+  gap: 12px;
+  padding: 14px 16px 10px;
+  background: #f5f8ff;
+  border-bottom: 1px solid #e2eaf4;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.statCard {
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.statBlue     { background: #dbeafe; }
+.statPeach    { background: #ffe4d4; }
+.statPurple   { background: #ede9fe; }
+.statLavender { background: #f3f0ff; }
+.statWide     { background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,0.07); border: 1px solid #e9eff8; }
+.statTasks    { background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,0.07); border: 1px solid #e9eff8; }
+
+.statCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statCardLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1.3;
+}
+
+.statCardIcon {
+  font-size: 16px;
+}
+
+.statBigNum {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.1;
+}
+
+.statNumSub {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.statSubRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  span {
+    font-size: 10px;
+    color: #6b7280;
+    white-space: nowrap;
+  }
+}
+
+.multiBar {
+  display: flex;
+  height: 5px;
+  border-radius: 4px;
+  overflow: hidden;
+  gap: 2px;
+  margin-top: 4px;
+}
+.mbBlue  { background: #3b82f6; border-radius: 4px; }
+.mbGreen { background: #10b981; border-radius: 4px; }
+.mbGray  { background: #d1d5db; border-radius: 4px; }
+
+.circleRow {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.avatarRow {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+/* Recruitment Status */
+.recruitHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.recruitTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+.recruitTotalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recruitTotalLabel {
+  font-size: 12px;
+  color: #6b7280;
+}
+.recruitTotalNum {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+.colorBar {
+  display: flex;
+  height: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+  gap: 2px;
+  margin: 4px 0 8px;
+  div { border-radius: 3px; }
+}
+.recruitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+}
+.recruitItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.recruitItemLabel {
+  font-size: 11px;
+  color: #6b7280;
+  flex: 1;
+}
+.recruitItemNum {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+.divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 8px 0 6px;
+}
+.performerRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.performerLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.performerInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.performerAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0b5ba7;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.performerName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+.performerRole {
+  font-size: 11px;
+  color: #6b7280;
+}
+.performerScore {
+  margin-left: auto;
+  text-align: right;
+}
+.performerScoreLabel {
+  display: block;
+  font-size: 10px;
+  color: #6b7280;
+}
+.performerScoreNum {
+  font-size: 16px;
+  font-weight: 700;
+  color: #059669;
+}
+.viewAll {
+  font-size: 11px;
+  color: #0b5ba7;
+  text-decoration: underline;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+/* Today Tasks */
+.tasksTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+.taskItem {
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.taskGreen  { background: #d1fae5; }
+.taskBlue   { background: #dbeafe; flex-direction: row; align-items: center; justify-content: space-between; }
+.taskYellow { background: #fef3c7; }
+
+.taskName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.3;
+}
+.taskBar {
+  height: 5px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.taskBarFill {
+  height: 100%;
+  border-radius: 4px;
+}
+.taskBadge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #374151;
+  align-self: flex-end;
+}
+.taskIcon {
+  font-size: 18px;
+}
+
+.fullViewWrap {
+  position: relative;
+  width: calc(100% + var(--space-4) + var(--space-2));
+  margin-left: calc(-1 * var(--space-2));
+  margin-right: calc(-1 * var(--space-4));
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  padding: var(--space-5);
+}
+
+
+.h2 { margin: 0 0 var(--space-3); font-size: 20px; font-weight: 600; }
+.p  { margin: 0; color: #4b5563; font-size: 14px; }
+
+.tokenBox {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.label {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.info {
+  margin: 0;
+  font-size: 13px;
+  color: #1f2937;
+}
+
+.error {
+  margin: 0;
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+.btn {
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.embedWrap {
+  margin-top: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.embedSurface {
+  min-height: 70vh;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    overflow: hidden;
+  }
+}
+
+
+
+
+/* Token Status Display */
+.tokenStatusBox {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.debugBox {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.debugTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.debugRow {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.success {
+  color: #059669;
+}
+
+.loading {
+  color: #d97706;
+  font-style: italic;
+}
+
+/* Embed Container */
+.embedContainer {
+  margin-top: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  min-height: 70vh;
+}
+
+.embedFull {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+
+  iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    display: block;
+  }
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.85);
+  font-size: 15px;
+  color: #64748b;
+  z-index: 10;
+}
+
+.errorBanner {
+  padding: 10px 16px;
+  background: #fee2e2;
+  border-bottom: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 13px;
+  flex-shrink: 0;
+}
