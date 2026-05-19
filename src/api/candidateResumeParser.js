@@ -1,3 +1,5 @@
+import { resolveApiUrl } from '../utils/runtimeConfig';
+
 const CANDIDATE_RESUME_PARSE_PATH = '/api/candidate/parse-resume';
 const INTERNAL_CANDIDATE_RESUME_PARSE_PATH = '/internal/ai/parse-resume';
 
@@ -68,7 +70,7 @@ async function requestParse(url, payload) {
 
 export const requestParsedCandidateResume = async (payload = {}) => {
   try {
-    return await requestParse(CANDIDATE_RESUME_PARSE_PATH, payload);
+    return await requestParse(resolveApiUrl(CANDIDATE_RESUME_PARSE_PATH), payload);
   } catch (primaryError) {
     if (import.meta.env.DEV) {
       try {

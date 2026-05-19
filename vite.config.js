@@ -9,6 +9,16 @@ function trimTrailingSlash(url) {
   return (url || '').replace(/\/+$/, '');
 }
 
+function normalizeBasePath(value) {
+  const raw = String(value || '/').trim();
+
+  if (!raw || raw === '/') {
+    return '/';
+  }
+
+  return `/${raw.replace(/^\/+|\/+$/g, '')}/`;
+}
+
 function sendJson(res, statusCode, payload) {
   res.statusCode = statusCode;
   res.setHeader('Content-Type', 'application/json');
@@ -537,6 +547,7 @@ export default defineConfig(({ mode }) => {
   const supersetSessionCookie = env.SUPERSET_SESSION_COOKIE || '';
 
   return {
+    base: normalizeBasePath(env.VITE_BASE_PATH || '/'),
     plugins: [
       react(),
       supersetGuestTokenPlugin(env),

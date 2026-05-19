@@ -1,3 +1,5 @@
+import { resolveApiUrl } from '../utils/runtimeConfig';
+
 const JOB_DESCRIPTION_PATH = '/api/job-description/generate';
 const INTERNAL_DEV_JOB_DESCRIPTION_PATH = '/internal/ai/job-description';
 
@@ -54,7 +56,7 @@ async function fetchViaInternalDevEndpoint(payload) {
 }
 
 async function fetchViaPrimaryApi(payload) {
-  const response = await fetch(JOB_DESCRIPTION_PATH, {
+  const response = await fetch(resolveApiUrl(JOB_DESCRIPTION_PATH), {
     method: 'POST',
     credentials: 'same-origin',
     headers: {
